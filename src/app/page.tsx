@@ -213,17 +213,22 @@ export default function Home() {
             viewport={{ once: true }}
           >
             {[
-              { imgHint: "bg-gradient-to-br from-zinc-800 to-zinc-900" },
-              { imgHint: "bg-gradient-to-br from-blue-900/40 to-black" },
-              { imgHint: "bg-gradient-to-br from-emerald-900/30 to-zinc-900" },
-              { imgHint: "bg-gradient-to-br from-amber-900/20 to-black" }
+              { img: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1000&auto=format&fit=crop" },
+              { img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop" },
+              { img: "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1000&auto=format&fit=crop" },
+              { img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop" }
             ].map((project, index) => (
               <motion.div
                 key={index}
                 variants={fadeInUp}
                 className="group cursor-pointer"
               >
-                <div className={`relative aspect-video rounded-3xl overflow-hidden ${project.imgHint} border border-white/5`}>
+                <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/5">
+                  <img
+                    src={project.img}
+                    alt="Project Visual"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
                   <motion.div
                     className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
