@@ -266,7 +266,7 @@ export default function Home() {
             <div className="mt-20 pt-10 border-t border-white/5 flex flex-wrap justify-center gap-8 text-white/40 uppercase tracking-widest text-xs font-bold">
               <a href="#" className="hover:text-primary transition-colors">LinkedIn</a>
               <a href="#" className="hover:text-primary transition-colors">Twitter</a>
-              <a href="#" className="hover:text-primary transition-colors">Instagram</a>
+              <a href="https://www.instagram.com/ahmed.khalifa_96/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
               <a href="#" className="hover:text-primary transition-colors">Behance</a>
             </div>
           </div>
