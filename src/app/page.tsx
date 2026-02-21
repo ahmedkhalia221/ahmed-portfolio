@@ -260,7 +260,7 @@ export default function Home() {
 
               <div className="flex flex-col md:flex-row items-center justify-center gap-6">
                 <a href="mailto:ahmedkhalifa875@icloud.com" className="btn-primary w-full md:w-auto">
-                  Email Me
+                  Email
                 </a>
                 <a href="https://wa.me/201104344679" target="_blank" className="px-8 py-4 rounded-full border border-white/10 hover:bg-white/5 transition-all w-full md:w-auto">
                   WhatsApp
