@@ -27,7 +27,6 @@ const Navbar = () => (
     <a href="#about" className="hover:text-primary transition-colors">About</a>
     <a href="#skills" className="hover:text-primary transition-colors">Expertise</a>
     <a href="#portfolio" className="hover:text-primary transition-colors">Works</a>
-    <a href="/research" className="hover:text-primary transition-all border border-primary/20 bg-primary/5 px-4 py-1.5 rounded-full">Academic Study</a>
     <a href="#contact" className="hover:text-primary transition-colors border-l border-white/10 pl-8 ml-2">Contact</a>
   </motion.nav>
 );
@@ -265,14 +264,13 @@ export default function Home() {
             {[
               { img: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1000&auto=format&fit=crop", title: "Luxury Product Direction" },
               { img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop", title: "Commercial Ad Tech" },
-              { img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop", title: "Academic Case Study: Villa Design", link: "/research", tag: "Architectural Research" },
-              { img: "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1000&auto=format&fit=crop", title: "Cinematic Visuals" }
+              { img: "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1000&auto=format&fit=crop", title: "Cinematic Visuals" },
+              { img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop", title: "Architectural Visuals" }
             ].map((project, index) => (
               <motion.div
                 key={index}
                 variants={fadeInUp}
                 className="group cursor-pointer"
-                onClick={() => project.link && (window.location.href = project.link)}
               >
                 <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/5">
                   <img
@@ -281,14 +279,6 @@ export default function Home() {
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
-
-                  {project.tag && (
-                    <div className="absolute top-6 left-6">
-                      <span className="px-3 py-1 bg-primary/20 text-primary text-[10px] font-bold rounded-full border border-primary/30 uppercase tracking-widest">
-                        {project.tag}
-                      </span>
-                    </div>
-                  )}
 
                   <motion.div
                     className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
