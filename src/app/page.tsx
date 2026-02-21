@@ -17,9 +17,24 @@ const staggerContainer = {
   }
 };
 
+const Navbar = () => (
+  <motion.nav
+    className="fixed top-6 left-1/2 -translate-x-1/2 z-50 glass px-6 py-3 rounded-full flex items-center gap-8 text-sm font-medium text-white/70 backdrop-blur-xl border border-white/10"
+    initial={{ y: -100, x: "-50%", opacity: 0 }}
+    animate={{ y: 0, x: "-50%", opacity: 1 }}
+    transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+  >
+    <a href="#about" className="hover:text-primary transition-colors">About</a>
+    <a href="#skills" className="hover:text-primary transition-colors">Expertise</a>
+    <a href="#portfolio" className="hover:text-primary transition-colors">Works</a>
+    <a href="#contact" className="hover:text-primary transition-colors border-l border-white/10 pl-8 ml-2">Contact</a>
+  </motion.nav>
+);
+
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen selection:bg-primary/30 selection:text-white">
+      <Navbar />
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Ambient Glow */}
@@ -72,7 +87,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            AI Product & Ad Video Creator — <span className="text-white">cinematic direction</span> and high-impact visuals.
+            AI Product & Ad Video Creator — <span className="text-white font-semibold italic">cinematic direction</span> and high-impact visuals.
           </motion.p>
 
           <motion.div
@@ -106,8 +121,8 @@ export default function Home() {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <h2 className="text-4xl md:text-5xl mb-8">Elevating product vision through <span className="text-primary">precise visual direction.</span></h2>
-              <p className="text-lg text-white/60 leading-relaxed mb-6">
+              <h2 className="text-4xl md:text-5xl mb-8 leading-[1.2]">Elevating product vision through <span className="text-primary italic">precise visual direction.</span></h2>
+              <p className="text-lg text-white/60 leading-relaxed mb-6 font-medium">
                 With an architecture mindset and a passion for AI-powered creation, I bridge concept and commercial impact. My approach is rooted in functional minimalism, strong composition, and cinematic aesthetics.
               </p>
             </motion.div>
@@ -160,19 +175,53 @@ export default function Home() {
             viewport={{ once: true }}
           >
             {[
-              { title: "Product & Ad Videos", description: "Short, focused videos designed for high-impact products and campaigns." },
-              { title: "Cinematic Visual Direction", description: "Clean imagery, intentional motion, and a tight, professional editing rhythm." },
-              { title: "Product as Value", description: "Highlighting materials and intricate details in a refined, convincing way." },
-              { title: "Cohesive Visual Identity", description: "A consistent style that ties your product ads into one powerful, clear brand identity." }
+              {
+                title: "Product & Ad Videos",
+                description: "Short, focused videos designed for high-impact products and campaigns.",
+                icon: (
+                  <svg className="w-8 h-8 mb-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                )
+              },
+              {
+                title: "Cinematic Visual Direction",
+                description: "Clean imagery, intentional motion, and a tight, professional editing rhythm.",
+                icon: (
+                  <svg className="w-8 h-8 mb-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 11h6m-6 4h6m-6-8h1" />
+                  </svg>
+                )
+              },
+              {
+                title: "Product as Value",
+                description: "Highlighting materials and intricate details in a refined, convincing way.",
+                icon: (
+                  <svg className="w-8 h-8 mb-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                  </svg>
+                )
+              },
+              {
+                title: "Cohesive Visual Identity",
+                description: "A consistent style that ties your product ads into one powerful, clear brand identity.",
+                icon: (
+                  <svg className="w-8 h-8 mb-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                  </svg>
+                )
+              }
             ].map((skill, index) => (
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="glass p-8 rounded-3xl hover:bg-primary/5 transition-colors group"
-                whileHover={{ y: -5 }}
+                className="glass p-8 rounded-3xl hover:bg-primary/5 hover:border-primary/20 transition-all group border border-white/5"
+                whileHover={{ y: -10 }}
               >
+                {skill.icon}
                 <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">{skill.title}</h3>
-                <p className="text-white/50">{skill.description}</p>
+                <p className="text-white/50 leading-relaxed">{skill.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -277,8 +326,18 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-10 text-center text-white/20 text-sm">
-        <p>&copy; {new Date().getFullYear()} Ahmed Khalifa. Built with precision.</p>
+      <footer className="py-20 text-center border-t border-white/5 mt-20">
+        <div className="section-container">
+          <p className="text-white/20 text-sm mb-6">&copy; {new Date().getFullYear()} Ahmed Khalifa. Built with precision.</p>
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="text-xs uppercase tracking-widest text-white/40 hover:text-primary transition-colors flex flex-col items-center gap-2 mx-auto"
+            whileHover={{ y: -5 }}
+          >
+            <span className="text-lg">↑</span>
+            Back to Top
+          </motion.button>
+        </div>
       </footer>
     </main>
   );
