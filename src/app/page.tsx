@@ -126,7 +126,7 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between items-center border-b border-white/5 pb-4">
                   <span className="text-white/40">Role</span>
-                  <span>AI Visual Director & Creator</span>
+                  <span>AI Visual Architect</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-white/40">Experience</span>
