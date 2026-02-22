@@ -283,7 +283,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative aspect-video overflow-hidden border border-white/10 grayscale-[0.8] hover:grayscale-0 transition-all duration-700"
+                className="group relative aspect-video overflow-hidden border border-white/10 transition-all duration-700"
               >
                 <div className="absolute inset-0 bg-primary/5" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />

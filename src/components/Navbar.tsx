@@ -48,8 +48,8 @@ export const Navbar = () => {
             >
                 <div className="max-w-7xl mx-auto px-10 h-24 flex items-center justify-between">
                     {/* Brand */}
-                    <Link href="/" className="text-xl font-bold tracking-[0.2em] uppercase">
-                        Ahmed<span className="text-primary">.</span>
+                    <Link href="/" className="text-xl font-bold tracking-[0.3em] uppercase">
+                        AK<span className="text-primary">.</span>
                     </Link>
 
                     {/* Desktop Center Links */}
