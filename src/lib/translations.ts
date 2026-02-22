@@ -66,6 +66,12 @@ export const translations = {
             copy: "Ahmed Khalifa. Built with precision.",
             backToTop: "Back to Top",
         },
+        gallery: {
+            title: "Project Gallery",
+            subtitle: "An extensive collection of my visual and architectural work.",
+            backToHome: "Back to Home",
+            filterAll: "All Projects",
+        }
     },
     ar: {
         nav: {
@@ -134,5 +140,11 @@ export const translations = {
             copy: "أحمد خليفة. بني بدقة.",
             backToTop: "العودة للأعلى",
         },
+        gallery: {
+            title: "معرض المشاريع",
+            subtitle: "مجموعة واسعة من أعمالي البصرية والمعمارية.",
+            backToHome: "العودة للرئيسية",
+            filterAll: "كل المشاريع",
+        }
     },
 };
