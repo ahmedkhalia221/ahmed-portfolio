@@ -76,30 +76,45 @@ const staggerContainer = {
 
 const Navbar = () => {
   const { language, setLanguage, isRTL } = useLanguage();
-  const t = translations[language].nav;
+  const t = translations[language];
 
   return (
-    <motion.nav
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 glass px-4 py-2 md:px-6 md:py-3 rounded-full flex items-center gap-4 md:gap-6 text-xs md:text-sm font-medium text-white/80 backdrop-blur-2xl border border-white/10 shadow-2xl"
-      initial={{ y: -100, x: "-50%", opacity: 0 }}
-      animate={{ y: 0, x: "-50%", opacity: 1 }}
+    <motion.header
+      className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-white/5"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
     >
-      <a href="#about" className="hover:text-primary transition-colors hidden sm:block">{t.about}</a>
-      <a href="#skills" className="hover:text-primary transition-colors hidden sm:block">{t.expertise}</a>
-      <a href="#portfolio" className="hover:text-primary transition-colors">{t.works}</a>
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        {/* Logo/Name */}
+        <motion.a
+          href="#"
+          className="text-xl font-bold tracking-tighter"
+          whileHover={{ scale: 1.05 }}
+        >
+          {t.hero.title}<span className="text-primary">.</span>
+        </motion.a>
 
-      <div className={`h-4 w-px bg-white/10 mx-1 md:mx-2`} />
+        {/* Navigation */}
+        <nav className="flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#about" className="text-sm font-medium text-white/60 hover:text-primary transition-colors">{t.nav.about}</a>
+            <a href="#skills" className="text-sm font-medium text-white/60 hover:text-primary transition-colors">{t.nav.expertise}</a>
+            <a href="#portfolio" className="text-sm font-medium text-white/60 hover:text-primary transition-colors">{t.nav.works}</a>
+            <a href="#contact" className="text-sm font-medium text-white/60 hover:text-primary transition-colors">{t.nav.contact}</a>
+          </div>
 
-      <a href="#contact" className="hover:text-primary transition-colors">{t.contact}</a>
+          <div className="h-4 w-px bg-white/10 hidden md:block" />
 
-      <button
-        onClick={() => setLanguage(language === "en" ? "ar" : "en")}
-        className="ml-2 px-4 py-1.5 rounded-full bg-primary text-white hover:bg-secondary transition-all text-[10px] font-bold shadow-lg"
-      >
-        {language === "en" ? "العربية" : "English"}
-      </button>
-    </motion.nav>
+          <button
+            onClick={() => setLanguage(language === "en" ? "ar" : "en")}
+            className="px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all text-xs font-bold shadow-lg"
+          >
+            {language === "en" ? "العربية" : "English"}
+          </button>
+        </nav>
+      </div>
+    </motion.header>
   );
 };
 
