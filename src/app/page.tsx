@@ -51,7 +51,7 @@ export default function Home() {
             <div className="relative w-40 h-40 md:w-56 md:h-56 rounded-full p-1 bg-gradient-to-tr from-primary to-secondary overflow-hidden shadow-2xl">
               <div className="w-full h-full rounded-full overflow-hidden bg-surface-lighter flex items-center justify-center">
                 <Image
-                  src="/ahmed-professional-portrait.jpg"
+                  src="/ahmed-professional-portrait.jpg?v=2"
                   alt="Ahmed Khalifa"
                   width={224}
                   height={224}
