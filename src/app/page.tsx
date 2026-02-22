@@ -85,16 +85,7 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Logo/Name */}
-        <motion.a
-          href="#"
-          className="text-xl font-bold tracking-tighter"
-          whileHover={{ scale: 1.05 }}
-        >
-          {t.hero.title}<span className="text-primary">.</span>
-        </motion.a>
-
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-center md:justify-end">
         {/* Navigation */}
         <nav className="flex items-center gap-8">
           <div className="hidden md:flex items-center gap-8">
@@ -136,7 +127,7 @@ export default function Home() {
       <CustomCursor />
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen pt-20 flex items-center justify-center overflow-hidden">
         {/* Background Ambient Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full -z-10" />
 
