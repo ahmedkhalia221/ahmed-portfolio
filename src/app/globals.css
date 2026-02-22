@@ -13,7 +13,7 @@
   --color-surface-card: #08080c;
 
   --font-inter: "Inter", sans-serif;
-  --font-outfit: "Outfit", sans-serif;
+  --font-syne: "Syne", sans-serif;
   --font-cairo: "Cairo", sans-serif;
 
   --shadow-glow: 0 0 50px rgba(212, 175, 55, 0.15);
@@ -57,13 +57,13 @@
   h4,
   h5,
   h6 {
-    @apply font-outfit uppercase tracking-[0.4em] font-bold text-white;
+    @apply font-syne uppercase tracking-[0.4em] font-extrabold text-white;
   }
 }
 
 @layer utilities {
   .wide-title {
-    @apply uppercase tracking-[0.5em] font-bold font-outfit;
+    @apply uppercase tracking-[0.5em] font-extrabold font-syne;
     font-size: clamp(2.5rem, 8vw, 7rem);
     line-height: 1.1;
   }
@@ -85,7 +85,7 @@
   }
 
   .btn-magnetic {
-    @apply transition-transform duration-300 ease-out;
+    @apply transition-transform duration-300 ease-out inline-block;
   }
 }
 

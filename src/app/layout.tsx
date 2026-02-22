@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Outfit, Cairo } from "next/font/google";
+import { Inter, Syne, Cairo } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/LanguageContext";
 
@@ -8,9 +8,10 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const cairo = Cairo({
@@ -31,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${outfit.variable} ${cairo.variable} antialiased`}
+        className={`${inter.variable} ${syne.variable} ${cairo.variable} antialiased`}
       >
         <LanguageProvider>
           {children}
