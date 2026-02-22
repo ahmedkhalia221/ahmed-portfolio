@@ -47,9 +47,17 @@ export const Navbar = () => {
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
                 <div className="max-w-7xl mx-auto px-10 h-24 flex items-center justify-between">
-                    {/* Brand */}
-                    <Link href="/" className="text-2xl font-extrabold tracking-[0.5em] uppercase font-syne">
-                        AK<span className="text-primary">.</span>
+                    {/* Brand Logo - Designed Component */}
+                    <Link href="/" className="group relative">
+                        <div className="flex items-center gap-2">
+                            <div className="relative w-10 h-10 bg-white/[0.03] border border-white/[0.05] rounded-lg overflow-hidden flex items-center justify-center backdrop-blur-md group-hover:border-primary/40 transition-colors">
+                                <span className="text-xl font-extrabold tracking-tighter text-white font-syncopate">A</span>
+                                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </div>
+                            <div className="text-xl font-extrabold tracking-[0.4em] uppercase font-syncopate text-white/90 group-hover:text-primary transition-colors">
+                                K<span className="text-primary group-hover:text-white transition-colors">.</span>
+                            </div>
+                        </div>
                     </Link>
 
                     {/* Desktop Center Links */}

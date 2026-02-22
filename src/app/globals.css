@@ -13,8 +13,11 @@
   --color-surface-card: #08080c;
 
   --font-inter: "Inter", sans-serif;
-  --font-syne: "Syne", sans-serif;
-  --font-cairo: "Cairo", sans-serif;
+  --font-syncopate: "Syncopate", sans-serif;
+  /* Wide Cinematic */
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  /* Modern Tech */
+  --font-arabic: "IBM Plex Sans Arabic", sans-serif;
 
   --shadow-glow: 0 0 50px rgba(212, 175, 55, 0.15);
   --glass-border: 1px solid rgba(212, 175, 55, 0.08);
@@ -28,7 +31,7 @@
 @layer base {
   body {
     @apply bg-[var(--background)] text-[var(--foreground)] selection:bg-primary/30;
-    font-family: var(--font-inter);
+    font-family: var(--font-space-grotesk);
     overflow-x: hidden;
     position: relative;
   }
@@ -48,7 +51,7 @@
   }
 
   body:has([dir="rtl"]) {
-    font-family: var(--font-cairo);
+    font-family: var(--font-arabic);
   }
 
   h1,
@@ -57,15 +60,32 @@
   h4,
   h5,
   h6 {
-    @apply font-syne uppercase tracking-[0.4em] font-extrabold text-white;
+    @apply uppercase tracking-[0.3em] font-bold text-white;
+    font-family: var(--font-syncopate);
+  }
+
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4 {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
   }
 }
 
 @layer utilities {
   .wide-title {
-    @apply uppercase tracking-[0.5em] font-extrabold font-syne;
-    font-size: clamp(2.5rem, 8vw, 7rem);
+    @apply uppercase tracking-[0.5em] font-bold;
+    font-family: var(--font-syncopate);
+    font-size: clamp(2rem, 6vw, 5.5rem);
+    /* Controlled size */
     line-height: 1.1;
+  }
+
+  [dir="rtl"] .wide-title {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+    font-size: clamp(1.8rem, 5vw, 4.5rem);
   }
 
   .cinematic-glow {
