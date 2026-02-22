@@ -2,15 +2,19 @@
 
 @theme {
   --color-primary: #3b82f6;
-  --color-secondary: #60a5fa;
+  --color-primary-soft: #3b82f620;
+  --color-secondary: #0ea5e9;
   --color-accent: #f59e0b;
-  --color-surface: #0a0a0f;
-  --color-surface-lighter: #16161e;
+  --color-surface: #030305;
+  --color-surface-lighter: #0a0a0f;
+  --color-surface-card: #12121a;
 
   --font-inter: "Inter", sans-serif;
   --font-outfit: "Outfit", sans-serif;
+  --font-cairo: "Cairo", sans-serif;
 
-  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.5);
+  --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.3);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 :root {
@@ -24,6 +28,10 @@
     font-family: var(--font-inter);
     overflow-x: hidden;
     position: relative;
+  }
+
+  body:has([dir="rtl"]) {
+    font-family: var(--font-cairo);
   }
 
   body::before {
@@ -51,7 +59,20 @@
 
 /* Custom Utilities */
 .glass {
-  @apply bg-surface-lighter/50 backdrop-blur-md border border-white/10;
+  @apply bg-surface-lighter/50 backdrop-blur-xl border border-white/10 shadow-2xl;
+}
+
+[dir="rtl"] .border-l {
+  @apply border-l-0 border-r;
+}
+
+[dir="rtl"] .pl-6 {
+  @apply pl-0 pr-6;
+}
+
+[dir="rtl"] .ml-1,
+[dir="rtl"] .ml-2 {
+  @apply ml-0 mr-1;
 }
 
 .text-gradient {
