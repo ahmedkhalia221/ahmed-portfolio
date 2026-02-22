@@ -116,9 +116,8 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="relative"
               >
-                <h1 className="text-7xl md:text-9xl wide-title leading-none mb-12">
-                  THE<br />
-                  <span className="text-white">FUTURE</span>
+                <h1 className="text-6xl md:text-8xl wide-title leading-tight mb-8">
+                  {t.hero.title}
                 </h1>
                 <div className="accent-line mb-8" />
               </motion.div>
@@ -127,7 +126,7 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-white/40 text-xl font-light max-w-sm leading-relaxed mb-12 border-l border-white/10 pl-6 rtl:border-l-0 rtl:border-r rtl:pl-0 rtl:pr-6"
+                className="text-white/40 text-xl font-light max-w-lg leading-relaxed mb-12 border-l border-white/10 pl-6 rtl:border-l-0 rtl:border-r rtl:pl-0 rtl:pr-6"
               >
                 {t.hero.subtitle}
               </motion.p>
@@ -150,32 +149,18 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="relative grayscale-[0.8]"
+                className="relative"
               >
                 <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full -z-10 opacity-30" />
                 <Image
                   src="/ahmed-professional-portrait.jpg"
-                  alt="Ahmed Khalifa"
+                  alt={t.hero.title}
                   width={600}
                   height={800}
                   className="object-cover"
                   priority
                 />
               </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* Modular Grid Info (Mission/Vision Style from Image) */}
-        <div className="absolute bottom-0 left-0 right-0 glass-card py-12 hidden md:block border-x-0 border-b-0">
-          <div className="max-w-7xl mx-auto px-12 grid grid-cols-2 gap-24">
-            <div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2 block">Our Mission</span>
-              <p className="text-[11px] text-white/40 tracking-wider font-light">Making the world united to its fullest with technology.</p>
-            </div>
-            <div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2 block">Our Vision</span>
-              <p className="text-[11px] text-white/40 tracking-wider font-light">Our mission is to make the world use its resources to the fullest.</p>
             </div>
           </div>
         </div>
