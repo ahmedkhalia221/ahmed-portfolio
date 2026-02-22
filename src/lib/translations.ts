@@ -1,6 +1,7 @@
 export const translations = {
     en: {
         nav: {
+            home: "Home",
             about: "About",
             expertise: "Expertise",
             works: "Works",
@@ -75,6 +76,7 @@ export const translations = {
     },
     ar: {
         nav: {
+            home: "الرئيسية",
             about: "عني",
             expertise: "الخبرات",
             works: "الأعمال",

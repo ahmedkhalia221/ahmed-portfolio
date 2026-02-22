@@ -94,272 +94,258 @@ export default function Home() {
       <CustomCursor />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen pt-20 flex items-center justify-center overflow-hidden">
-        {/* Background Ambient Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full -z-10" />
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background Ambient Glows */}
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/20 blur-[150px] rounded-full -z-10 animate-pulse" />
+        <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-primary/10 blur-[120px] rounded-full -z-10" />
 
-        <div className="section-container text-center flex flex-col items-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative mb-10"
-          >
-            <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
-            <div className="relative w-40 h-40 md:w-56 md:h-56 rounded-full p-1 bg-gradient-to-tr from-primary to-secondary overflow-hidden shadow-2xl">
-              <div className="w-full h-full rounded-full overflow-hidden bg-surface-lighter flex items-center justify-center">
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-8 text-left rtl:text-right flex flex-col items-start rtl:items-end">
+              <motion.span
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="text-[10px] font-bold tracking-[0.4em] uppercase text-primary mb-8 block"
+              >
+                {t.hero.badge}
+              </motion.span>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="relative"
+              >
+                <h1 className="text-7xl md:text-9xl wide-title leading-none mb-12">
+                  THE<br />
+                  <span className="text-white">FUTURE</span>
+                </h1>
+                <div className="accent-line mb-8" />
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                className="text-white/40 text-xl font-light max-w-sm leading-relaxed mb-12 border-l border-white/10 pl-6 rtl:border-l-0 rtl:border-r rtl:pl-0 rtl:pr-6"
+              >
+                {t.hero.subtitle}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                <a
+                  href="#contact"
+                  className="px-10 py-4 border border-white/20 hover:border-primary hover:text-primary transition-all text-[11px] font-bold uppercase tracking-[0.3em] text-white/80"
+                >
+                  {t.hero.cta}
+                </a>
+              </motion.div>
+            </div>
+
+            <div className="lg:col-span-4 hidden lg:block">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="relative grayscale-[0.8]"
+              >
+                <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full -z-10 opacity-30" />
                 <Image
                   src="/ahmed-professional-portrait.jpg"
-                  alt={t.hero.title}
-                  width={224}
-                  height={224}
-                  className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+                  alt="Ahmed Khalifa"
+                  width={600}
+                  height={800}
+                  className="object-cover"
                   priority
                 />
-              </div>
+              </motion.div>
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-primary text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
-              {t.hero.badge}
-            </div>
-          </motion.div>
-
-          <motion.h1
-            className="text-6xl md:text-8xl mb-6 tracking-tighter"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {t.hero.title} <span className="text-white/40">.</span>
-          </motion.h1>
-
-          <motion.p
-            className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto mb-10 font-outfit"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            {t.hero.subtitle}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <a href="#contact" className="btn-primary inline-block">
-              {t.hero.cta}
-            </a>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
-        </motion.div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="bg-surface-lighter/30">
-        <div className="section-container">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-            >
-              <h2 className="text-4xl md:text-5xl mb-8 leading-[1.2]">{t.about.title}</h2>
-              <p className="text-lg text-white/60 leading-relaxed mb-6 font-medium">
-                {t.about.description}
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="glass p-8 rounded-3xl"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="space-y-6">
-                <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                  <span className="text-white/40">{t.about.location}</span>
-                  <span>{t.about.egypt}</span>
-                </div>
-                <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                  <span className="text-white/40">{t.about.role}</span>
-                  <span>{t.about.creativeDirector}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-white/40">{t.about.experience}</span>
-                  <span>{t.about.experienceYears}</span>
-                </div>
-              </div>
-            </motion.div>
+        {/* Modular Grid Info (Mission/Vision Style from Image) */}
+        <div className="absolute bottom-0 left-0 right-0 glass-card py-12 hidden md:block border-x-0 border-b-0">
+          <div className="max-w-7xl mx-auto px-12 grid grid-cols-2 gap-24">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2 block">Our Mission</span>
+              <p className="text-[11px] text-white/40 tracking-wider font-light">Making the world united to its fullest with technology.</p>
+            </div>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2 block">Our Vision</span>
+              <p className="text-[11px] text-white/40 tracking-wider font-light">Our mission is to make the world use its resources to the fullest.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills">
+      {/* About Section - Modular Box Style */}
+      <section id="about" className="relative py-32 border-b border-white/[0.05]">
         <div className="section-container">
-          <motion.div
-            className="mb-16"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <h2 className="text-4xl md:text-5xl mb-4">{t.expertise.title}</h2>
-            <p className="text-white/50 text-xl font-outfit">{t.expertise.subtitle}</p>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {t.expertise.items.map((skill, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="glass p-8 rounded-3xl hover:bg-primary/5 hover:border-primary/20 transition-all group border border-white/5"
-                whileHover={{ y: -10 }}
-              >
-                <div className="w-12 h-12 mb-6 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                  <ExpertiseIcon index={index} />
-                </div>
-                <h3 className="text-xl mb-4 group-hover:text-primary transition-colors">{skill.title}</h3>
-                <p className="text-white/50 leading-relaxed">{skill.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Portfolio Section */}
-      <section id="portfolio" className="relative overflow-hidden">
-        {/* Background Accent */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 blur-[150px] rounded-full -z-10" />
-
-        <div className="section-container">
-          <motion.div
-            className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <div>
-              <h2 className="text-4xl md:text-5xl mb-4">{t.portfolio.title}</h2>
-              <p className="text-white/50 text-xl font-outfit">{t.portfolio.subtitle}</p>
-            </div>
-            <Link
-              href="/gallery"
-              className="text-primary font-semibold flex items-center gap-2 hover:gap-4 transition-all group"
-            >
-              {t.portfolio.explore} <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </Link>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {[
-              { img: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1000&auto=format&fit=crop", title: "Luxury Product Direction" },
-              { img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop", title: "Commercial Ad Tech" },
-              { img: "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1000&auto=format&fit=crop", title: "Cinematic Visuals" },
-              { img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop", title: "Architectural Visuals" }
-            ].map((project, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="group cursor-pointer"
-              >
-                <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/5">
-                  <img
-                    src={project.img}
-                    alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
-
-                  <motion.div
-                    className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <h4 className="text-xl font-bold mb-4">{t.portfolio.projects[index].title}</h4>
-                    <span className="px-6 py-2 rounded-full glass text-sm font-medium">{t.portfolio.viewProject}</span>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="bg-surface-lighter/30">
-        <div className="section-container">
-          <div className="glass p-12 md:p-20 rounded-[40px] text-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             <motion.div
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
-              variants={fadeInUp}
+              variants={staggerContainer}
             >
-              <h2 className="text-5xl md:text-7xl mb-8 tracking-tighter">{t.contact.title}</h2>
-              <p className="text-xl text-white/50 mb-12 max-w-xl mx-auto">
-                {t.contact.subtitle}
+              <h2 className="text-4xl md:text-5xl wide-title mb-10 leading-tight">
+                {t.about.title}
+              </h2>
+              <p className="text-white/40 text-lg leading-relaxed font-light mb-12">
+                {t.about.description}
               </p>
+            </motion.div>
 
-              <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-                <a href="mailto:ahmedkhalifa875@icloud.com" className="btn-primary w-full md:w-auto">
-                  {t.contact.email}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-1 border-white/10 bg-white/10 border p-1 glass-card overflow-hidden">
+              <div className="bg-background p-8">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-4 block">{t.about.location}</span>
+                <p className="text-xl font-bold">{t.about.egypt}</p>
+              </div>
+              <div className="bg-background p-8">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-4 block">{t.about.role}</span>
+                <p className="text-xl font-bold">{t.about.creativeDirector}</p>
+              </div>
+              <div className="bg-background p-8 md:col-span-2">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-4 block">{t.about.experience}</span>
+                <p className="text-xl font-bold">{t.about.experienceYears}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise Section */}
+      <section id="skills" className="py-32">
+        <div className="section-container">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-4 block">{t.expertise.subtitle}</span>
+            <h2 className="text-4xl md:text-6xl wide-title tracking-tighter">{t.expertise.title}</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 p-1 bg-white/5 border border-white/10 glass-card">
+            {t.expertise.items.map((item: any, index: number) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-background p-10 group hover:bg-primary/5 transition-colors"
+              >
+                <div className="text-primary mb-8 transform group-hover:scale-110 transition-transform origin-left">
+                  <ExpertiseIcon index={index} />
+                </div>
+                <h3 className="text-lg font-bold uppercase tracking-widest mb-6">{item.title}</h3>
+                <p className="text-white/40 text-sm font-light leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section - Minimalist Grid */}
+      <section id="portfolio" className="py-32 bg-white/[0.02]">
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8"
+          >
+            <div>
+              <h2 className="text-4xl md:text-6xl wide-title mb-6 leading-none">{t.portfolio.title}</h2>
+              <p className="text-white/40 text-xl font-light">{t.portfolio.subtitle}</p>
+            </div>
+            <Link
+              href="/gallery"
+              className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary border border-primary/20 hover:bg-primary hover:text-white px-8 py-3 transition-all"
+            >
+              {t.portfolio.explore}
+            </Link>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { img: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1000&auto=format&fit=crop", title: "Luxury Product Direction" },
+              { img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop", title: "Commercial Ad Tech" }
+            ].map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative aspect-video overflow-hidden border border-white/10 grayscale-[0.8] hover:grayscale-0 transition-all duration-700"
+              >
+                <div className="absolute inset-0 bg-primary/5" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="text-2xl wide-title mb-4">{t.portfolio.projects[index].title}</h3>
+                  <button className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary border-b border-primary/50 pb-1">
+                    {t.portfolio.viewProject}
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section - Minimalist Focus */}
+      <section id="contact" className="py-40">
+        <div className="section-container">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-primary mb-8 block">{t.contact.subtitle}</span>
+              <h2 className="text-5xl md:text-8xl wide-title mb-16 leading-tight">{t.contact.title}</h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+                <a
+                  href={`mailto:ahmedkhalifa875@icloud.com`}
+                  className="glass-card p-12 hover:border-primary/50 transition-colors group"
+                >
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/30 mb-4 block">{t.contact.email}</span>
+                  <p className="text-xl font-bold group-hover:text-primary transition-colors">ahmedkhalifa875@icloud.com</p>
                 </a>
-                <a href="https://wa.me/201104344679" target="_blank" className="px-8 py-4 rounded-full border border-white/10 hover:bg-white/5 transition-all w-full md:w-auto">
-                  {t.contact.whatsapp}
+                <a
+                  href="https://wa.me/201104344679"
+                  className="glass-card p-12 hover:border-primary/50 transition-colors group"
+                >
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/30 mb-4 block">{t.contact.whatsapp}</span>
+                  <p className="text-xl font-bold group-hover:text-primary transition-colors">+20 1104344679</p>
                 </a>
               </div>
             </motion.div>
-
-            <div className="mt-20 pt-10 border-t border-white/5 flex flex-wrap justify-center gap-8 text-white/40 uppercase tracking-widest text-xs font-bold">
-              <a href="https://www.instagram.com/ahmed.khalifa_96/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
-              <a href="#" className="hover:text-primary transition-colors">Facebook</a>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-20 text-center border-t border-white/5 mt-20">
-        <div className="section-container">
-          <p className="text-white/20 text-sm mb-6">&copy; {new Date().getFullYear()} {t.footer.copy}</p>
-          <motion.button
+      <footer className="py-20 border-t border-white/5">
+        <div className="section-container flex flex-col md:flex-row justify-between items-center gap-10">
+          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30">
+            &copy; {new Date().getFullYear()} {t.footer.copy}
+          </span>
+
+          <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-xs uppercase tracking-widest text-white/40 hover:text-primary transition-colors flex flex-col items-center gap-2 mx-auto"
-            whileHover={{ y: -5 }}
+            className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30 hover:text-primary transition-colors flex items-center gap-4 group"
           >
-            <span className="text-lg">↑</span>
-            {t.footer.backToTop}
-          </motion.button>
+            <span className="group-hover:-translate-y-1 transition-transform">↑</span> {t.footer.backToTop}
+          </button>
         </div>
       </footer>
     </main>

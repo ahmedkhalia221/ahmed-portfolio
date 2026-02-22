@@ -13,22 +13,22 @@ export const Navbar = () => {
     const pathname = usePathname();
     const isGallery = pathname === "/gallery";
 
-    // Scroll state
     const { scrollY } = useScroll();
     const [hidden, setHidden] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious() || 0;
-        if (latest > previous && latest > 150) {
+        if (latest > previous && latest > 100) {
             setHidden(true);
-            setIsMenuOpen(false); // Close menu on scroll down
+            setIsMenuOpen(false);
         } else {
             setHidden(false);
         }
     });
 
     const navLinks = [
+        { href: "/#", label: t.nav.home || "Home" },
         { href: "/#about", label: t.nav.about },
         { href: "/#skills", label: t.nav.expertise },
         { href: "/#portfolio", label: t.nav.works, highlight: isGallery },
@@ -38,83 +38,87 @@ export const Navbar = () => {
     return (
         <>
             <motion.header
-                className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-white/5"
+                className="fixed top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-sm border-b border-white/[0.05]"
                 variants={{
                     visible: { y: 0 },
                     hidden: { y: "-100%" },
                 }}
                 animate={hidden ? "hidden" : "visible"}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
-                <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-                    {/* Brand/Logo - Standard on mobile too */}
-                    <Link href="/" className="text-lg font-bold tracking-tighter md:hidden">
-                        AK<span className="text-primary">.</span>
+                <div className="max-w-7xl mx-auto px-10 h-24 flex items-center justify-between">
+                    {/* Brand */}
+                    <Link href="/" className="text-xl font-bold tracking-[0.2em] uppercase">
+                        Ahmed<span className="text-primary">.</span>
                     </Link>
 
-                    {/* Desktop Navigation */}
-                    <nav className="flex items-center gap-8 ml-auto">
-                        <div className="hidden md:flex items-center gap-8">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    className={`text-sm font-medium transition-colors ${link.highlight ? 'text-primary' : 'text-white/60 hover:text-primary'}`}
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
-                        </div>
+                    {/* Desktop Center Links */}
+                    <nav className="hidden lg:flex items-center gap-12 flex-1 justify-center">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className={`text-[10px] font-bold uppercase tracking-[0.3em] transition-all hover:text-primary ${link.highlight ? 'text-primary' : 'text-white/40'}`}
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
+                    </nav>
 
-                        <div className="h-4 w-px bg-white/10 hidden md:block" />
-
-                        {/* Language Switcher - Always Visible */}
+                    {/* Controls */}
+                    <div className="flex items-center gap-8">
                         <button
                             onClick={() => setLanguage(language === "en" ? "ar" : "en")}
-                            className="px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all text-xs font-bold shadow-lg"
+                            className="text-[9px] font-bold uppercase tracking-widest text-white/40 hover:text-white transition-colors border border-white/10 px-4 py-2"
                         >
                             {language === "en" ? "العربية" : "English"}
                         </button>
 
-                        {/* Mobile Menu Toggle */}
+                        {/* Grid Menu Icon */}
                         <button
-                            className="md:hidden p-2 text-white/80"
+                            className="text-white/80 hover:text-primary transition-colors"
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                {isMenuOpen ? (
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                ) : (
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                                )}
-                            </svg>
+                            <div className="grid grid-cols-3 gap-1">
+                                {[...Array(9)].map((_, i) => (
+                                    <div key={i} className="w-1.5 h-1.5 bg-current rounded-full" />
+                                ))}
+                            </div>
                         </button>
-                    </nav>
+                    </div>
                 </div>
             </motion.header>
 
-            {/* Mobile Menu Overlay */}
+            {/* Mobile/Full Menu Overlay */}
             <AnimatePresence>
                 {isMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 z-40 bg-surface pt-24 px-6 md:hidden"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-40 bg-background flex flex-col items-center justify-center p-6"
                     >
-                        <nav className="flex flex-col gap-6">
+                        <nav className="flex flex-col gap-10 text-center">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href}
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="text-2xl font-bold text-white/90 hover:text-primary transition-colors flex items-center justify-between"
+                                    className="text-4xl md:text-6xl wide-title text-white/90 hover:text-primary transition-colors"
                                 >
                                     {link.label}
-                                    <span className="text-primary text-sm">→</span>
                                 </Link>
                             ))}
                         </nav>
+
+                        <button
+                            className="absolute top-10 right-10 text-white/40 hover:text-primary"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
                     </motion.div>
                 )}
             </AnimatePresence>
