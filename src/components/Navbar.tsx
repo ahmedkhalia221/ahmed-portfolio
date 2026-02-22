@@ -48,7 +48,7 @@ export const Navbar = () => {
             >
                 <div className="max-w-7xl mx-auto px-10 h-24 flex items-center justify-between">
                     {/* Brand */}
-                    <Link href="/" className="text-xl font-bold tracking-[0.3em] uppercase">
+                    <Link href="/" className="text-2xl font-extrabold tracking-[0.5em] uppercase font-syne">
                         AK<span className="text-primary">.</span>
                     </Link>
 
